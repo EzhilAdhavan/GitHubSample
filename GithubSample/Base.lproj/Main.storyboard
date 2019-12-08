@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qHI-EJ-EQ5">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="M0d-b6-iU5">
+            <objects>
+                <navigationController id="qHI-EJ-EQ5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r5t-NX-T4a">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VUk-NH-vD0" kind="relationship" relationship="rootViewController" id="kI8-U8-VjO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KHL-4v-n08" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1272" y="100"/>
+        </scene>
+        <!--Issues-->
+        <scene sceneID="6e2-w5-jxJ">
+            <objects>
+                <viewController id="VUk-NH-vD0" customClass="IssuesListViewController" customModule="GithubSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ltW-0V-tQS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9r-LM-5tX" customClass="CustomSegment" customModule="GithubSample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qgU-EW-b0w"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0jo-SH-DEF">
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nnC-kj-xtv">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="I9r-LM-5tX" firstAttribute="top" secondItem="A5y-WX-N7x" secondAttribute="top" id="FVp-kt-p4r"/>
+                            <constraint firstItem="I9r-LM-5tX" firstAttribute="leading" secondItem="A5y-WX-N7x" secondAttribute="leading" id="KLo-zG-rjK"/>
+                            <constraint firstItem="0jo-SH-DEF" firstAttribute="trailing" secondItem="A5y-WX-N7x" secondAttribute="trailing" id="Ncy-Vr-OMs"/>
+                            <constraint firstItem="0jo-SH-DEF" firstAttribute="leading" secondItem="A5y-WX-N7x" secondAttribute="leading" id="Sum-eq-Nou"/>
+                            <constraint firstItem="0jo-SH-DEF" firstAttribute="bottom" secondItem="A5y-WX-N7x" secondAttribute="bottom" id="Ufw-L1-F3v"/>
+                            <constraint firstItem="I9r-LM-5tX" firstAttribute="trailing" secondItem="A5y-WX-N7x" secondAttribute="trailing" id="Z0J-qD-BeX"/>
+                            <constraint firstItem="0jo-SH-DEF" firstAttribute="top" secondItem="I9r-LM-5tX" secondAttribute="bottom" id="vWP-qw-fJs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A5y-WX-N7x"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Issues" id="MUM-Hj-qfs"/>
+                    <connections>
+                        <outlet property="customSegment" destination="I9r-LM-5tX" id="Nng-rQ-jXM"/>
+                        <outlet property="issuesCollectionView" destination="0jo-SH-DEF" id="TV5-Xe-zwP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GIR-nL-F7M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-446.37681159420293" y="99.776785714285708"/>
+        </scene>
+        <!--Detail View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="BYZ-38-t0r" customClass="DetailViewController" customModule="GithubSample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcM-rA-nBS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lcM-rA-nBS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="OPz-uU-KL2"/>
+                            <constraint firstItem="lcM-rA-nBS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TUa-ma-LqN"/>
+                            <constraint firstItem="lcM-rA-nBS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Uin-zO-bLW"/>
+                            <constraint firstItem="lcM-rA-nBS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aBd-J3-okv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="lcM-rA-nBS" id="1y6-FU-CEL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="322" y="100"/>
         </scene>
     </scenes>
 </document>
